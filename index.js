@@ -20,6 +20,9 @@ Do the following:
    HINT: no function required
 */
 
+const votingAge = 18
+votingAge >= 18 ? console.log(true) : ''
+
 
 
 /*
@@ -34,6 +37,12 @@ Do the following:
    HINT: no function required
 */
 
+let firstThing = 2
+let secondThing = 2
+
+firstThing === secondThing ? firstThing = 3 : ''
+
+console.log(firstThing)
 
 
 
@@ -49,7 +58,8 @@ Do the following:
    HINT: look up the Number method
 */
 
-
+let number = "1999"
+console.log(parseInt(number))
 
 
 /*
@@ -77,8 +87,8 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
+function dogYears(age){
+  return age*7
 }
 
 
@@ -129,8 +139,26 @@ NOTE 2: This is a great time to check the tests to see what it expects, versus w
         So, on this one test, the weight would be 4 pounds, and the age would be 1 years old. It's expecting your function to return a decimal number of 0.2
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+function hungryDog(weight, age){
+    if (age >= 1){
+      if( weight <= 5){
+        return weight * .05
+    } else if( weight >=  6 && weight <= 10){
+      return weight * .04
+    } else if(weight >= 11 && weight <= 15){
+      return weight * .03
+    } else if(weight >= 15){
+      return weight * .02
+    }
+  } else if(age < 1){
+    if(age >= .2 && age <= .4){
+      return weight * .1
+    } else if ( age >= .4 && age <= .7){
+      return weight * .05
+    } else if (age >= .7 && age <= 1){
+      return weight * .04
+    }
+  }
 }
 
 
@@ -157,7 +185,34 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 */
 
 function game(user, computer){
-  /*add your code here*/
+   switch(computer){
+    case "rock":
+      if(user === 'scissors'){
+        return "you lose!"
+      } else if (user === 'paper'){
+        return "you win!"
+      }
+      break;
+    case "paper":
+      if(user === 'rock'){
+        return "you lose!"
+      } else if(user === 'scissors'){
+        return "you win!"
+      }
+      break;
+    case "scissors":
+      if(user === "paper"){
+        return "you lose!"
+      } else if(user === 'rock'){
+        return "you win!"
+      }
+      break;
+  }
+
+  if (computer === user){
+    return "it's a tie"
+  }
+
 }
 
 
@@ -173,8 +228,8 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(km){
+  return km * 0.621371
 }
 
 
@@ -187,8 +242,8 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(cm){
+  return cm / 30.48
 }
 
 
@@ -207,8 +262,8 @@ Using the annoyingSong function below do the following:
 4. Each time the annoyingSong is run from this loop, it should console.log the string that was returned. 
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(number){
+      return `${number} bottles of soda on the wall, ${number} bottles of soda, take one down pass it around ${number - 1} bottles of soda on the wall`
 }
 
 
@@ -227,8 +282,24 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(grade){
+  switch (true){
+    case (grade >= 90 && grade <= 100):
+      return 'you got an A'
+      break;
+      case (grade >= 80 && grade <=89):
+        return 'you got a B'
+        break;
+      case (grade >= 70 && grade <=79):
+        return 'you got a C'
+        break;
+      case (grade >= 60 && grade <=69):
+        return 'you got a D'
+        break;
+      case (grade <= 59):
+        return 'you got an F'
+        break;
+    }
 }
 
 
@@ -246,9 +317,18 @@ HINT - try looking up the .includes() method
 */
 
 
-function vowelCounter(/*add your code here*/) {
-  /*add your code here*/
-}
+function vowelCounter(string) {
+  const vowels = ["A","E","I","O","U","a","e","i","o","u"]
+  let count = 0
+  for(let i = 0; i <= string.length; i++){
+   if(vowels.includes(string.split("")[i])){
+     count++
+   }
+  }
+  return count
+ }
+ 
+ vowelCounter('alien')
 
 
 
